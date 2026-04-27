@@ -1,13 +1,9 @@
-/* CSS BY YOUR NAME */
+/* CSS BY SEAN WON */
 
-/* IMPORTED FONTS*/
-/* IMPORT "INTER" FROM GOOGLE FONTS"
+/* IMPORTED FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 /* CSS RESET */
-/* http://meyerweb.com/eric/tools/css/reset/
-v2.0 | 20110126
-License: none (public domain)
-*/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -27,30 +23,13 @@ time, mark, audio, video {
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+    box-sizing: border-box;
 }
-/* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-    display: block;
-}
-body {
-    line-height: 1;
-}
-ol, ul {
-    list-style: none;
-}
-blockquote, q {
-    quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
-}
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
+footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1; }
+ol, ul { list-style: none; }
+table { border-collapse: collapse; border-spacing: 0; }
 
 /* ROOT VARIABLES */
 :root {
@@ -62,100 +41,225 @@ table {
     --font: "Inter", sans-serif;
 }
 
-/* GLOBAL STYLES (MOBILE FIRST (SMALL) */
+/* GLOBAL STYLES (mobile first/small) */
+html { scroll-behavior: smooth; }
 
-/* MIN-WIDTH OF THE PAGE SHOULD NOT GO BELOW 400PX */
+body {
+    min-width: 400px;
+    font-family: var(--font);
+    background-color: var(--black);
+    color: var(--white);
+    line-height: 1.6;
+}
 
-/* ADD A DIV WITH THE CLASS OF CONTAINER TO EVERY CONTENT CONTAINER THIS IS ALLOW THE BASE ELEMENTS TO BE 100% WIDTH, BUT CONSTRAIN THE ACTUAL CONTENT TO 90% */
 .container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* ADD TO "INNOVATION & INVESTMENT SECTION (Photo by Kevin Matos on Unsplash) */
- {
-    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/vanguard-hero.jpg') no-repeat center center/cover;
-    height: 80vh;
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+header {
+    background-color: var(--black);
+    padding: 1rem 0;
+    border-bottom: 2px solid var(--blue);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.logo-wrapper { display: flex; align-items: center; gap: 0.5rem; }
+.logo-icon {
+    width: 2rem;
+    height: 2rem;
+    background: url('images/vanguard-logo.svg') no-repeat center/contain;
+}
+.logo { font-size: 1.5rem; font-weight: bold; color: var(--blue); }
+
+.menu-toggle { display: none; }
+.menu-icon { font-size: 1.8rem; cursor: pointer; color: var(--white); }
+
+.nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: var(--black);
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 1rem 0;
+    text-align: center;
+    z-index: 100;
+}
+.menu-toggle:checked ~ .nav-links { display: flex; }
+.nav-links li { margin: 0.5rem 0; }
+.nav-links a { color: var(--blue); font-weight: bold; text-decoration: none; }
+
+.btn {
+    display: inline-block;
+    background-color: var(--blue);
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.btn:hover { background-color: var(--red); transform: translateY(-3px); }
+
+section { padding: 4rem 0; }
+
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/vanguard-hero.jpg') no-repeat center center/cover;
+    height: 60vh;
     display: grid;
     place-items: center;
     text-align: center;
-    padding: 1rem;
-    overflow: hidden;
+    position: relative;
 }
+.hero h2 { font-size: 2.2rem; font-weight: bold; margin-bottom: 1rem; position: relative; display: inline-block; color: #fff;}
+.hero p { margin-bottom: 1.5rem; color: #fff; }
 
-/* ADD FLOATING SVG LOGO BEFORE THE H1 */
- {
+.hero h2::before {
     content: "";
-
-    left:-.5rem;
-    width: 3.75rem;
-    height: 3.75rem;
+    position: absolute;
+    left: -3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2.5rem;
+    height: 2.5rem;
     background: url('images/vanguard-logo.svg') no-repeat center/contain;
-
 }
-/* THIS ONE IS DONE FOR YOU */
+
+.about, .services {
+    background-color: #fff;
+    color: var(--black);
+}
+.about h2, .services h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.grid-services {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+.grid-services article {
+    background-color: var(--blue);
+    color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+.grid-services article:hover { transform: translateY(-5px); }
+.grid-services h3 { font-size: 1.2rem; font-weight: bold; margin-bottom: 0.5rem; }
+
+.results { background-color: var(--blue); color: #fff; }
+.results h2 { font-size: 2rem; font-weight: bold; margin-bottom: 1rem; }
+.results-flex { display: flex; flex-direction: column; gap: 3rem; }
+
+.results-table h3, .bar-chart-container h3 { font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem; }
+table { width: 100%; background-color: var(--black); color: #fff; border-radius: 8px; overflow: hidden; }
+th, td { padding: 1rem; text-align: center; border-bottom: 1px solid #444; }
+
 #bar-chart {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     align-items: flex-end;
     justify-content: space-around;
     gap: 1rem;
-    height: 300px;
+    height: 250px;
     width: 100%;
-    max-width: 800px;
-    padding: 1rem;
-    position: relative;
+    padding-top: 1rem;
+    border-bottom: 2px solid #fff;
 }
-/* ADD ON TRANSITION ON HEIGHT */
 .bar {
-    width: 50px;
+    width: 100%;
+    max-width: 40px;
     background: var(--charcoal);
-    border-radius: 10px;
+    border-radius: 4px 4px 0 0;
     position: relative;
-    transition: ;
+    margin: 0 auto;
     height: 0;
+    transition: background-color 0.3s;
+    animation: stepUp 1s ease-in-out forwards;
 }
-/* THIS ONE IS DONE FOR YOU */
+.bar:hover { background: var(--black); }
 .bar::after {
     content: attr(data-year);
     position: absolute;
     bottom: -25px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 1rem;
-    font-weight: bold;
-    color: var(--white);
+    font-size: 0.9rem;
 }
+
 @keyframes stepUp {
-    0% {
-        height: 0;
-    }
-    100% {
-        height: var(--height);
-    }
-}
-/* ADD ANIMATION ON stepUp for 1s ease-in-out forwards */
-.bar {
-    animation: stepUp 1s ease-in-out forwards;
+    0% { height: 0; }
+    100% { height: var(--height); }
 }
 
+.contact { background-color: var(--black); color: #fff; }
+form { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+.form-group { display: flex; flex-direction: column; }
+label { font-size: 0.9rem; font-weight: bold; margin-bottom: 0.3rem; }
+input, textarea {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    font-family: var(--font);
+}
 
-/* MEDIA QUERIES (MEDIUM) */ 
+footer {
+    background-color: var(--black);
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 0.9rem;
+    border-top: 1px solid #333;
+}
+footer a { color: var(--blue); text-decoration: none; }
 
-    #results {
-        grid-template-columns: 1fr 1fr;
-    }
-    .results-container {
+/* MEDIA QUERY (MEDIUM) */
+@media (min-width: 800px) {
+    .menu-icon { display: none; }
+    .nav-links {
+        display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        position: static;
+        width: auto;
+        padding: 0;
+        gap: 1.5rem;
     }
-    .results-table {
-        width: 50%;
-    }
-    .bar-chart {
-        width: 50%;
-    }
+    .grid-services { grid-template-columns: repeat(2, 1fr); }
+    .results-flex { flex-direction: row; justify-content: space-between; }
+    .results-table, .bar-chart-container { width: 48%; }
+}
 
-
-/* MEDIA QUERIES (LARGE) */
+/* MEDIA QUERY (LARGE) */
+@media (min-width: 1024px) {
+    .grid-services { grid-template-columns: repeat(3, 1fr); }
+    .hero h2 { font-size: 3rem; }
+    form { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .full-width { grid-column: span 2; }
+}
