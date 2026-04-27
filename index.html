@@ -13,15 +13,20 @@
 <body>
     <header>
         <div class="container header-container">
-            <div class="logo">Vanguard</div>
+            <div class="logo-wrapper">
+                <div class="logo-icon"></div>
+                <h1 class="logo">Vanguard</h1>
+            </div>
             
             <nav>
+                <h2 class="visually-hidden">Main Navigation</h2>
+                
                 <input type="checkbox" id="menu-toggle" class="menu-toggle">
                 <label for="menu-toggle" class="menu-icon">☰</label>
                 <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#services">SERVICES</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
                 </ul>
             </nav>
         </div>
@@ -30,7 +35,7 @@
     <main>
         <section id="hero" class="hero">
             <div class="container">
-                <h1>Innovation & Investment</h1>
+                <h2>Innovation & Investment</h2>
                 <p>We empower businesses to lead the future with high-impact strategies, market intelligence, and financial solutions that drive success.</p>
                 <a href="#contact" class="btn">Request a Consultation</a>
             </div>
@@ -76,58 +81,60 @@
         </section>
 
         <section id="results" class="results">
-            <div class="container results-container">
-                <div class="results-table">
-                    <h2>Proven Results</h2>
-                    <p>Our data-driven strategies have delivered outstanding ROI, leading to significant revenue growth.</p>
-                    
-                    <table>
-                        <caption>Profits</caption>
-                        <thead>
-                            <tr>
-                                <th>Year</th>
-                                <th>Revenue ($M)</th>
-                                <th>Growth (%)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>2020</td>
-                                <td>$120M</td>
-                                <td>30%</td>
-                            </tr>
-                            <tr>
-                                <td>2021</td>
-                                <td>$180M</td>
-                                <td>50%</td>
-                            </tr>
-                            <tr>
-                                <td>2022</td>
-                                <td>$250M</td>
-                                <td>70%</td>
-                            </tr>
-                            <tr>
-                                <td>2023</td>
-                                <td>$340M</td>
-                                <td>85%</td>
-                            </tr>
-                            <tr>
-                                <td>2024</td>
-                                <td>$420M</td>
-                                <td>100%</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <div class="container">
+                <h2>Proven Results</h2>
+                <p class="results-desc">Our data-driven strategies have delivered outstanding ROI, leading to significant revenue growth.</p>
+                
+                <div class="results-flex">
+                    <div class="results-table">
+                        <h3>Profits</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Year</th>
+                                    <th>Revenue ($M)</th>
+                                    <th>Growth (%)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2020</td>
+                                    <td>$120M</td>
+                                    <td>30%</td>
+                                </tr>
+                                <tr>
+                                    <td>2021</td>
+                                    <td>$180M</td>
+                                    <td>50%</td>
+                                </tr>
+                                <tr>
+                                    <td>2022</td>
+                                    <td>$250M</td>
+                                    <td>70%</td>
+                                </tr>
+                                <tr>
+                                    <td>2023</td>
+                                    <td>$340M</td>
+                                    <td>85%</td>
+                                </tr>
+                                <tr>
+                                    <td>2024</td>
+                                    <td>$420M</td>
+                                    <td>100%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                <div class="bar-chart-container">
-                    <h3>Growth</h3>
-                    <div id="bar-chart">
-                        <div class="bar" data-year="2020" style="--height: 30%;"></div>
-                        <div class="bar" data-year="2021" style="--height: 50%;"></div>
-                        <div class="bar" data-year="2022" style="--height: 70%;"></div>
-                        <div class="bar" data-year="2023" style="--height: 85%;"></div>
-                        <div class="bar" data-year="2024" style="--height: 100%;"></div>
+                    <div class="bar-chart-container">
+                        <h3>Growth</h3>
+                        <div id="bar-chart">
+                            <div class="bar" data-year="2020" style="--height: 30%;"></div>
+                            <div class="bar" data-year="2021" style="--height: 50%;"></div>
+                            <div class="bar" data-year="2022" style="--height: 70%;"></div>
+                            <div class="bar" data-year="2023" style="--height: 85%;"></div>
+                            <div class="bar" data-year="2024" style="--height: 100%;"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -139,22 +146,32 @@
                 <p>Want to take your business to the next level? Get in touch with our elite team today.</p>
                 
                 <form action="#" method="POST">
-                    <label for="fullname">Full Name</label>
-                    <input type="text" id="fullname" name="fullname" required>
+                    <div class="form-group">
+                        <label for="fullname">Full Name</label>
+                        <input type="text" id="fullname" name="fullname" required>
+                    </div>
 
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
 
-                    <label for="company">Company Name</label>
-                    <input type="text" id="company" name="company">
+                    <div class="form-group">
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company" name="company">
+                    </div>
 
-                    <label for="industry">Industry</label>
-                    <input type="text" id="industry" name="industry">
+                    <div class="form-group">
+                        <label for="industry">Industry</label>
+                        <input type="text" id="industry" name="industry">
+                    </div>
 
-                    <label for="message">How can we help you?</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <div class="form-group full-width">
+                        <label for="message">How can we help you?</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
 
-                    <button type="submit" class="btn">Submit</button>
+                    <button type="submit" class="btn full-width">Submit</button>
                 </form>
             </div>
         </section>
@@ -162,8 +179,9 @@
 
     <footer>
         <div class="container">
+            <p>© 2025 Vanguard. All rights reserved.</p>
             <p>For educational purposes only.</p>
-            <p>Email: info@vanguard.com</p>
+            <p>Email: <a href="mailto:info@vanguard.com">info@vanguard.com</a></p>
             <p>Phone: 480.123.4567</p>
         </div>
     </footer>
